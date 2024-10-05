@@ -1,0 +1,86 @@
+<html>
+<head>
+    <title>FAKE NEWS DETECTION</title>
+<style>
+    iframe {
+    width: 100%;
+    height: 800px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+ul
+{
+list-style-type:none;
+margin:12px;
+padding:10px;
+background-color:black;
+overflow:hidden;
+}
+li
+{
+float:left;
+}
+a
+{
+display:inline-block;
+padding:12px;
+text-decoration:none;
+background-color:black;
+color:white;
+}
+a:hover
+{
+background-color:gray;
+}
+.dropdown:hover .dropdown-content
+{
+display:block;
+}
+.dropdown-content
+{
+position:absolute;
+display:none;
+}
+.dropdown-content a
+{
+display:block;
+}
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+h1{
+    background-color: blanchedalmond;
+    text-align: center;
+    color:rgb(24, 60, 60);
+    font-variant: small-caps;
+}
+</style>
+</head>
+<body background="\static\mini.jpg">
+<form action="http://127.0.0.1:5000/home1" method="post">
+<h1>Fake News Detection</h1>
+<ul>
+<li><a href="#home1">Home</a></li>
+<li class="dropdown">
+    <a href="#home1">News Data Entry</a>
+    <div class="dropdown-content">
+        <a href="/insertnews" target="view">Insert News</a>
+        <a href="/updatenews" target="view">Update News</a>
+        <a href="/deletenews" target="view">Delete News</a>
+    </div>
+</li>
+<li><a href="/newsview1" target="view">News Data Viewing</a></li>
+<li><a href="/newssearch1" target="view">News Data Searching</a></li>
+<li><a href="/feedback" target="view">Feedback</a></li>
+<li><a href="/about1" target="view">About us</a></li>
+<li><a href="/contact1" target="view">Contact us</a></li>
+<li style="float:right" ><a href="/login1">Logout</a></li>
+</ul>
+</form>
+<iframe name="view">
+</iframe>
+</body>
+</html>

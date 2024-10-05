@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Decision of News(Fake or Real)</title>
+    <style>
+	body {
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #444;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(46, 231, 55, 0.804);
+    width: 100%;
+    max-width: 600px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #f4f4f4;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #f4f4f4;
+}
+
+input[type="text"],
+textarea,
+select {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+input[type=number]{
+    padding:10px;
+    border:none;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+textarea {
+    resize: vertical;
+}
+
+button {
+    background: #41ab41;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #25ae25;
+}
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+</style>
+</head>
+<body>
+<form action="http://127.0.0.1:5000/decisionofnews1" method="post">
+    <div class="container">
+        <header>
+            <h1>Update Decision of News(Fake or Real)</h1>
+        </header><br><br>
+        <main>
+        <div id="feedback-form">
+            <label class="news-title" >Article No.</label>
+                <input type="number" name="artno" placeholder="Article no..."><br><br>
+            <div class="form-group">
+                <label for="feedback">Your Feedback:</label>
+                <textarea id="feedback" name="feedback" rows="4" placeholder="Give your feedback..." required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="rating">News Decision(Real/Fake):</label>
+                <select id="rating" name="rating" required>
+                    <option value="Real">Real</option>
+                    <option value="Fake">Fake</option>
+                </select>
+            </div><br><br>
+            <button type="submit">Submit Decision</button>
+        </div>
+        </main>
+    </div>
+</form>
+</body>
+</html>

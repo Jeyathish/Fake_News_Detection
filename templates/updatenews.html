@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updating News Data</title>
+    <style>
+        /* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #f4f4f4;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+textarea{
+    width:60%;
+    height:150px;
+    margin: 8px 30px;
+    box-sizing: border-box;
+}
+.news-card {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(46, 231, 55, 0.804);
+}
+
+.news-title {
+    margin: 0;
+    font-size: 1.5em;
+    color: #f4f4f4;
+}
+
+.news-source {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.news-source a {
+    background: #41ab41;
+    text-decoration: none;
+}
+
+.news-source a:hover {
+    text-decoration: underline;
+}
+
+.news-summary {
+    margin: 15px 0;
+    font-size: 1.2em;
+    color: #f4f4f4;
+}
+
+.feedback-section {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.feedback-button {
+    background: #41ab41;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.feedback-button1 {
+    background: #41ab41;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    float: right;
+}
+.feedback-button:hover {
+    background: #25ae25;
+}
+input[type=text]{
+    width:50%;
+    padding:13px 5px 13px 5px;
+    border:none;
+    border: 1px solid rgb(6, 5, 5);
+    border-radius: 5px;
+    font-size: medium;
+}
+input[type=text1]{
+    width:20%;
+    padding:13px 5px 13px 5px;
+    border:none;
+    border: 1px solid rgb(6, 5, 5);
+    border-radius: 5px;
+    font-size: medium;
+}
+input[type=number]{
+    padding:10px;
+    border:none;
+    border: 1px solid rgb(6, 5, 5);
+    border-radius: 5px;
+    font-size: medium;
+}
+    </style>
+</head>
+<body>
+<form action="http://127.0.0.1:5000/updatenews" method="post" enctype="multipart/form-data">
+    <div class="container">
+        <header>
+            <h1>Updating News Data</h1>
+        </header>
+        <main>
+            <section class="news-card">
+                <label class="news-title" for="fnews">Article No.</label>
+                <input type="number" name="artno" placeholder="Article no..."><br><br>
+                <label class="news-title" for="fnews">News Heading for Update News:</label>
+                <input type="text" name="heading" placeholder="Enter the news heading to update...">
+                <p class="news-summary">
+                    <label class="news-summary" for="newss">News Summary:</label></p>
+                <textarea cols="100" rows="8" name="newss" placeholder="Enter the news summary..."></textarea> <br><br>
+                <label class="news-title" for="fnews">Location:</label>
+                <input class="a" type="text1" name="location" placeholder="Area Location..."><br><br>
+                <div class="upload-container">
+                    <label class="news-title" for="image-upload">News Image: </label>
+                    <input type="file" name="image" id="image-upload" accept="image/*"/>
+                </div><br><br>
+                <label class="news-title" for="fnews">News Decision</label>
+                <input class="a" type="text1" name="newsd" placeholder="Real/Fake"><br><br>
+                <div class="form-group">
+                <label class="news-title" for="feedback">Your Feedback:</label><br>
+                <textarea id="feedback" name="feedback" rows="4" placeholder="Give your feedback..." required></textarea>
+            </div><br><br><br>
+                <div class="feedback-section">
+                    <button class="feedback-button">Update News</button>
+                </div>
+            </section>
+        </main>
+    </div>
+</form>
+</body>
+</html>

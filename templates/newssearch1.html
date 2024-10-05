@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Data Searching</title>
+    <style>
+        /* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #f4f4f4;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+textarea{
+    width:60%;
+    height:150px;
+    margin: 8px 30px;
+    box-sizing: border-box;
+}
+.news-card {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(46, 231, 55, 0.804);
+    text-align:center;
+}
+
+.news-title {
+    margin: 0;
+    font-size: 1.5em;
+    color: #f4f4f4;
+}
+
+.news-source {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.news-source a {
+    background: #41ab41;
+    text-decoration: none;
+}
+
+.news-source a:hover {
+    text-decoration: underline;
+}
+
+.news-summary {
+    margin: 15px 0;
+    font-size: 1.1em;
+    color: #f4f4f4;
+}
+
+.feedback-section {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.feedback-button {
+    background: #41ab41;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 40px;
+    float:right;
+}
+.feedback-button:hover {
+    background: #25ae25;
+}
+input[type=number]{
+    padding:8px 6px 8px 2px;
+    border:none;
+    border: 1px solid rgb(6, 5, 5);
+    border-radius: 5px;
+    font-size: medium;
+}
+input[type=text]{
+    width:50%;
+    padding:13px 5px 13px 5px;
+    border:none;
+    border: 1px solid rgb(6, 5, 5);
+    border-radius: 5px;
+    font-size: medium;
+}
+input[type=text1]{
+    width:20%;
+    padding:13px 5px 13px 5px;
+    border:none;
+    border: 1px solid rgb(6, 5, 5);
+    border-radius: 5px;
+    font-size: medium;
+}
+.table-container {
+    width: 90%;
+    max-width: 900px;
+    margin: 20px;
+    background-color: #444;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 1em;
+    background-color: #2d2d2d;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+    background-color: #555;
+}
+
+thead th {
+    padding: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #f0f0f0;
+    border-bottom: 2px solid #666;
+}
+
+tbody tr {
+    transition: all 0.3s ease-in-out;
+}
+
+tbody td {
+    padding: 15px;
+    text-align: center;
+    color: #ddd;
+    border-bottom: 1px solid #555;
+}
+
+tbody td:first-child {
+    font-weight: bold;
+    color: #fff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #3a3a3a;
+}
+
+tbody tr:last-of-type td {
+    border-bottom: none;
+}
+        img {
+            max-width: 150px;
+        }
+h2{
+        text-align:center;
+        font-family:Arial, Helvetica, sans-serif;
+        color:#f4f4f4;
+        }
+</style>
+</head>
+<body>
+<form action="http://127.0.0.1:5000/newssearch1" method="post">
+    <div class="container">
+        <header>
+            <h1>News Data Searching</h1>
+        </header>
+        <main>
+            <section class="news-card">
+                <label class="news-title" for="fnews">Article No.</label>
+                <input type="number" name="artno" placeholder="Article no...">
+                <div class="feedback-section">
+                    <button class="feedback-button">Search News</button>
+                </div>
+            </section>
+        </main>
+    </div>
+</form><br><br>
+<h2> {{data1}}{{data}} {{data2}}</h2><br><br>
+<table class="container1">
+        <thead>
+            <tr>
+                <!-- Display column headers dynamically -->
+                {% for column in column_names %}
+                    <th>{{ column }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Display rows of data dynamically -->
+            {% for row in rows %}
+            <tr>
+                <!-- Display title and description -->
+                <td>{{ row[0] }}</td> <!-- Title -->
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td><!-- Description -->
+                <!-- Display image from the image path -->
+                <td>
+                {% for row in user3 %}
+                <img src="{{ url_for('static', filename=row[4]) }}" alt="News Search">
+                    {% endfor %}</td> <!-- Image -->
+                <td>{{ row[5] }}</td>
+                <td>{{ row[6] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

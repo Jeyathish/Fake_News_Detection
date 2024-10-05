@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Details</title>
+    <style>
+        /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+}
+
+.container {
+    width: 90%;
+    margin: 50px;
+    overflow: hidden;
+    background-color: #444;
+    padding: 40px 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(46, 231, 55, 0.804);
+}
+
+#contact-details {
+    background: #333;
+    color: #fff;
+    padding: 30px 0;
+}
+
+#contact-details h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.info-item {
+    background: #444;
+    padding: 20px;
+    border-radius: 5px;
+    width: 250px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.info-item h3 {
+    margin-top: 0;
+}
+
+.info-item p {
+    margin: 10px 0;
+}
+
+.info-item a {
+    color: #5cb85c;
+    text-decoration: none;
+}
+
+.info-item a:hover {
+    text-decoration: underline;
+}
+.news-card {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(46, 231, 55, 0.804);
+}
+.a{
+    background-color: #444;
+    padding: 20px;
+    margin:20px 500px;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(46, 231, 55, 0.804);
+}
+    </style>
+</head>
+<body>
+<form action="http://127.0.0.1:5000/contact" method="post">
+    <section id="contact-details"><br><br><br><br>
+        <div class="container"><br><br><br>
+            <h2 class="a">Contact Details</h2><br><br><br>
+            <div class="contact-info">
+                <div class="info-item">
+                    <h3>Address:</h3>
+                    <p>17/5, Bharathi Colony, Palayamkottai, Tirunelveli.<br>Pincode - 627005 </p>
+                </div>
+                <div class="info-item">
+                    <h3>Phone:</h3>
+                    <p><a href="tel:+6379598872">+91 6379598872</a></p>
+                </div>
+                <div class="info-item">
+                    <h3>Email:</h3>
+                    <p><a href="mailto:pradeesh@gmail.com">pradeesh@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>
+</body>
+</html>

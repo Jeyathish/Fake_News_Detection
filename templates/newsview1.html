@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Data Viewing</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.table-container {
+    width: 90%;
+    background-color: #444;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 1em;
+    background-color: #2d2d2d;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+    background-color: #555;
+}
+
+thead th {
+    padding: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #f0f0f0;
+    border-bottom: 2px solid #666;
+}
+
+tbody tr {
+    transition: all 0.3s ease-in-out;
+}
+
+tbody td {
+    padding: 15px;
+    text-align: center;
+    color: #ddd;
+    border-bottom: 1px solid #555;
+}
+
+tbody td:first-child {
+    font-weight: bold;
+    color: #fff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #3a3a3a;
+}
+
+tbody tr:last-of-type td {
+    border-bottom: none;
+}
+h1{
+        text-align:center;
+        font-family:Arial, Helvetica, sans-serif;
+        color:#f4f4f4;
+        }
+         img {
+            max-width: 150px;
+        }
+</style>
+</head>
+<body>
+<form action="http://127.0.0.1:5000/newsview1" method="post"><br><br>
+    <div class="container">
+        <h1>News Data Viewing</h1><br><br><br>
+    <table>
+        <thead>
+            <tr>
+                <!-- Dynamically insert column names -->
+                {% for column in column_names %}
+                    <th>{{ column }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+        {% for row in rows %}
+            <tr>
+                <td>{{ row[0] }}</td> <!-- Title -->
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td><!-- Description -->
+                <!-- Display image from the image path -->
+                <td><img src="{{ url_for('static', filename=row[4]) }}" alt="News View"></td>
+                <td>{{ row[5] }}</td>
+                <td>{{ row[6] }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</form>
+</body>
+</html>
